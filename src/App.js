@@ -1,4 +1,5 @@
 import music from './music.mp3'
+import bee from './bee.png'
 import './App.css';
 
 function App() {
@@ -9,6 +10,10 @@ function App() {
             <audio id="audio" controls loop>
                 <source src={music}/>
             </audio>
+
+        </div>
+        <div id="bee">
+            <img src={bee} width="100px" height="100px"/>
         </div>
     </>
 ;
