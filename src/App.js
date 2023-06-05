@@ -13,7 +13,7 @@ function App() {
 
         </div>
         <div id="bee">
-            <img src={bee} width="100px" height="100px"/>
+            <img src={bee} width="100px" height="100px" alt=""/>
         </div>
     </>
 ;
