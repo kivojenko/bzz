@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import music from './music.mp3'
 import './App.css';
 
