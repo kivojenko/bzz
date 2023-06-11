@@ -5,20 +5,24 @@
 }
 @keyframes run {
   0% {
-    left: 0;
+    left: calc(100% - 100px);
   }
   48% {
     transform: rotateY(0deg);
   }
   50% {
-    left: calc(100% - 100px);
+    left: 0;
     transform: rotateY(180deg);
   }
   98% {
     transform: rotateY(180deg);
   }
   100% {
-    left: 0;
+    left: calc(100% - 100px);
     transform: rotateY(0deg);
   }
+}
+.btn-group-lg>.btn, .btn-lg {
+  padding: .375rem 0.75rem;;
+  font-size: 1.5rem;
 }

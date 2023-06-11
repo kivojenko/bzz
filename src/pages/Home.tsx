@@ -1,10 +1,12 @@
 import React from 'react'
-import bee from './../assets/images/bee.png'
+import {ReactComponent as Bee} from './../assets/images/bee.svg'
 
 export const Home  = () => {
     return (
-        <div id="bee">
-            <img src={bee} width="100px" height="100px" alt=""/>
+        <div id="bee" >
+            <svg width="100px" height="100px">
+                <Bee/>
+            </svg>
         </div>
     );
 }
