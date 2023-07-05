@@ -1,0 +1,18 @@
+#grass {
+  bottom: 0;
+  position: absolute;
+  width: 110%;
+  left: -10%;
+}
+
+#leftGrass {
+  left: -7%;
+  height: 84vh;
+  position: absolute;
+}
+
+#rightGrass {
+  right: -9%;
+  height: 84vh;
+  position: absolute;
+}

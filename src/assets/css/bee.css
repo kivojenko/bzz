@@ -1,3 +1,24 @@
+.bee-right-wing {
+
+}
+
+.bee-cheeks {
+
+}
+
+.bee-yellow-stripes {
+  fill: var(--bee-yellow) !important;
+  stroke: var(--bee-yellow) !important;
+}
+
+.bee-black-stripes {
+  fill: var(--bee-black) !important;
+}
+
+.bee-cheeks {
+  fill: var(--bee-cheeks) !important;
+}
+
 #bee {
   bottom: 30%;
   position: absolute;
@@ -21,8 +42,4 @@
     left: calc(100% - 100px);
     transform: rotateY(0deg);
   }
-}
-.btn-group-lg>.btn, .btn-lg {
-  padding: .375rem 0.75rem;;
-  font-size: 1.5rem;
 }
