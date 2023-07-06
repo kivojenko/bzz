@@ -3,19 +3,24 @@
   position: absolute;
   width: 110%;
   left: -10%;
+}
+
+.long-grass {
   fill: var(--long-grass) !important;
+}
+
+.side-grass {
+  fill: var(--side-grass) !important;
 }
 
 #leftGrass {
   left: -7%;
   height: 84vh;
   position: absolute;
-  fill: var(--side-grass) !important;
 }
 
 #rightGrass {
   right: -9%;
   height: 84vh;
   position: absolute;
-  fill: var(--side-grass) !important;
 }
