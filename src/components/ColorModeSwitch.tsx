@@ -1,6 +1,6 @@
 import React from 'react';
 import {getTheme, setTheme} from "../service/themeService";
-import { ModeSwitchButtonWithIcons } from "../basicComponents/ModeSwitchButtonWithIcons";
+import {ModeSwitchButtonWithIcons} from "../basicComponents/ModeSwitchButtonWithIcons";
 
 
 export const ColorModeSwitch = () => {
@@ -12,6 +12,8 @@ export const ColorModeSwitch = () => {
     }
 
     return (
-      <ModeSwitchButtonWithIcons icons={[sunIcon, moonIcon]} toggle={toggleTheme}/>
+        <ModeSwitchButtonWithIcons
+            icons={getTheme() === 'light' ? [sunIcon, moonIcon] : [moonIcon, sunIcon]}
+            toggle={toggleTheme}/>
     );
 };

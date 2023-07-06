@@ -1,3 +1,6 @@
 .cloud {
-  fill: #fff !important;
+  fill: var(--cloud) !important;
+}
+.cloud-text {
+  fill: var(--secondary-color) !important;
 }

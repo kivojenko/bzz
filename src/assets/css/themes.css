@@ -4,6 +4,7 @@
       #576500 46%,
       #889931 71%,
       #a2b449 92%) fixed;
+  --secondary-color: #006685;
   --bee-yellow: #ffdf9a;
   --bee-black:#775a00;
   --bee-cheeks: #ffb4ab;
@@ -13,6 +14,9 @@
   --long-grass-2: #a2b449;
   --long-grass-3: #bed062;
   --side-grass: #e8fb87;
+  --navbar-main: #bfe9ff;
+  --cloud: #f4faff;
+  --cloud-text: #001f2a;
 }
 [data-theme='dark'] {
   --background:
@@ -20,6 +24,7 @@
       #2c3400 46%,
       #414c00 71%,
       #4c5800 92%) fixed;
+  --secondary-color: #bfe9ff;
   --bee-yellow: #b58a00;
   --bee-black: #3f2e00;
   --bee-cheeks: #93000a;
@@ -29,4 +34,7 @@
   --long-grass-2: #4c5800;
   --long-grass-3: #576500;
   --side-grass: #6f7e17;
+  --navbar-main: #003547;
+  --cloud: #006685;
+  --cloud-text: #f4faff;
 }
