@@ -1,8 +1,8 @@
 import React from 'react'
 import {ReactComponent as Bee} from './../assets/images/bee.svg'
 import {ReactComponent as Grass} from '../assets/images/grass.svg'
-import {ReactComponent as Left} from '../assets/images/grass_left.svg'
-import {ReactComponent as Right} from '../assets/images/grass_right.svg'
+import {ReactComponent as LeftGrass} from '../assets/images/grass_left.svg'
+import {ReactComponent as RightGrass} from '../assets/images/grass_right.svg'
 
 export const Home = () => {
     return (
@@ -12,20 +12,10 @@ export const Home = () => {
                     <Bee/>
                 </svg>
             </div>
-            <div id="grass">
-                <svg width="100%">
-                    <Grass/>
-                </svg>
-            </div>
-            <div id="leftGrass">
-                <svg height="100%">
-                    <Left/>
-                </svg>
-            </div>
-            <div id="rightGrass">
-                <svg height="100%">
-                    <Right/>
-                </svg>
+            <div>
+                <Grass id="bottom-grass" className="grass"/>
+                <LeftGrass id="left-grass" className="grass side-grass"/>
+                <RightGrass id="right-grass" className="grass side-grass"/>
             </div>
         </>
     );

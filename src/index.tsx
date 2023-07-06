@@ -6,11 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import './assets/css/themes.css';
-import './assets/css/App.css';
-import './assets/css/index.css';
-import './assets/css/bee.css';
-import './assets/css/grass.css'
+import './assets/css/main'
 
 
 const root = ReactDOM.createRoot(

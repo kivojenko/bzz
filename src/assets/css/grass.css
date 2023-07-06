@@ -1,26 +1,26 @@
-#grass {
-  bottom: 0;
+.grass {
   position: absolute;
-  width: 110%;
-  left: -10%;
 }
 
-.long-grass {
+.long-grass-svg {
   fill: var(--long-grass) !important;
 }
 
-.side-grass {
+.side-grass-svg {
   fill: var(--side-grass) !important;
 }
 
-#leftGrass {
-  left: -7%;
-  height: 84vh;
-  position: absolute;
+#bottom-grass {
+  bottom: 0;
+  width: 100vw;
 }
 
-#rightGrass {
-  right: -9%;
+#left-grass {
+  left: 0;
   height: 84vh;
-  position: absolute;
+}
+
+#right-grass {
+  right: 0;
+  height: 84vh;
 }

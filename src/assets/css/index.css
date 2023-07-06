@@ -3,6 +3,7 @@ body {
   overflow-x: hidden;
 }
 
-.cloud {
-  fill: #fff !important;
+.container-fluid {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
