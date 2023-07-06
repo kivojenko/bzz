@@ -8,14 +8,16 @@ export const Home = () => {
     return (
         <>
             <div id="bee">
-                <svg width="100px" height="100px">
-                    <Bee/>
-                </svg>
+                <Bee width="100px" height="100px"/>
             </div>
             <div>
-                <Grass id="bottom-grass" className="grass"/>
-                <LeftGrass id="left-grass" className="grass side-grass"/>
-                <RightGrass id="right-grass" className="grass side-grass"/>
+                <Grass id="bottom-grass-1" className="grass"/>
+                <Grass id="bottom-grass-2" className="grass"/>
+                <Grass id="bottom-grass-3" className="grass"/>
+                <LeftGrass id="left-grass-1" className="grass side-grass side-grass-1"/>
+                <RightGrass id="right-grass-1" className="grass side-grass side-grass-1"/>
+                <LeftGrass id="left-grass-2" className="grass side-grass side-grass-2"/>
+                <RightGrass id="right-grass-2" className="grass side-grass side-grass-2"/>
             </div>
         </>
     );

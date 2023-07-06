@@ -2,25 +2,55 @@
   position: absolute;
 }
 
-.long-grass-svg {
-  fill: var(--long-grass) !important;
+#bottom-grass-1 .long-grass-svg {
+  fill: var(--long-grass-1) !important;
 }
 
-.side-grass-svg {
+#bottom-grass-2 .long-grass-svg {
+  fill: var(--long-grass-2) !important;
+}
+
+#bottom-grass-3 .long-grass-svg, .side-grass-1 .side-grass-svg {
+  fill: var(--long-grass-3) !important;
+}
+
+.side-grass-2 .side-grass-svg {
   fill: var(--side-grass) !important;
 }
 
-#bottom-grass {
+#bottom-grass-1 {
+  bottom: 20vh;
+  height: 20vh;
+}
+#bottom-grass-2 {
+  bottom: 13vh;
+  height: 25vh;
+}
+#bottom-grass-3 {
   bottom: 0;
-  width: 100vw;
+  height: 35vh;
 }
 
-#left-grass {
+#left-grass-1 {
+  left: 5vh;
+  bottom: 0;
+  height: 64vh;
+}
+
+#right-grass-1 {
+  right: 5vh;
+  bottom: 0;
+  height: 64vh;
+}
+
+#left-grass-2 {
   left: 0;
+  bottom: 0;
   height: 84vh;
 }
 
-#right-grass {
+#right-grass-2 {
   right: 0;
+  bottom: 0;
   height: 84vh;
 }

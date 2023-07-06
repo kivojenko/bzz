@@ -1,30 +1,32 @@
 :root {
   --background:
       #fff linear-gradient(0deg,
-      #576500 6%,
-      #889931 41%,
-      #bed062 53%,
-      #e8fb87 72%) fixed;
+      #576500 46%,
+      #889931 71%,
+      #a2b449 92%) fixed;
   --bee-yellow: #ffdf9a;
   --bee-black:#775a00;
   --bee-cheeks: #ffb4ab;
   --bee-right-wing: #e4e3d3;
-  --bee-left-wing: #77786a;
-  --long-grass: #bed062;
+  --bee-left-wing: #fbfae9;
+  --long-grass-1: #889931;
+  --long-grass-2: #a2b449;
+  --long-grass-3: #bed062;
   --side-grass: #e8fb87;
 }
 [data-theme='dark'] {
   --background:
       #fff linear-gradient(0deg,
-      #2c3400 6%,
-      #414c00 41%,
-      #576500 53%,
-      #889931 72%) fixed;
+      #2c3400 46%,
+      #414c00 71%,
+      #4c5800 92%) fixed;
   --bee-yellow: #b58a00;
   --bee-black: #3f2e00;
   --bee-cheeks: #93000a;
-  --bee-right-wing: #77786a;
-  --bee-left-wing: #46483b;
-  --long-grass: #576500;
-  --side-grass: #889931;
+  --bee-right-wing: #c7c7b7;
+  --bee-left-wing: #acac9d;
+  --long-grass-1: #414c00;
+  --long-grass-2: #4c5800;
+  --long-grass-3: #576500;
+  --side-grass: #6f7e17;
 }
