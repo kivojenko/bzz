@@ -1,9 +1,9 @@
 .bee-right-wing {
-  fill: var(--bee-right-wing);
+  fill: var(--bee-right-wing) !important;
 }
 
 .bee-left-wing {
-  fill: var(--bee-left-wing);
+  fill: var(--bee-left-wing) !important;
 }
 
 .bee-yellow-stripes {

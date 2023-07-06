@@ -1,8 +1,8 @@
 import React from 'react'
 import {ReactComponent as Bee} from './../assets/images/bee.svg'
-import {ReactComponent as Grass} from './../assets/images/Grass.svg'
-import {ReactComponent as Left} from './../assets/images/Tall_grass_left.svg'
-import {ReactComponent as Right} from './../assets/images/Tall_grass_right.svg'
+import {ReactComponent as Grass} from '../assets/images/grass.svg'
+import {ReactComponent as Left} from '../assets/images/grass_left.svg'
+import {ReactComponent as Right} from '../assets/images/grass_right.svg'
 
 export const Home = () => {
     return (

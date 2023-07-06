@@ -10,6 +10,8 @@
   --bee-cheeks: #ffb4ab;
   --bee-right-wing: #e4e3d3;
   --bee-left-wing: #77786a;
+  --long-grass: #bed062;
+  --side-grass: e8fb87;
 }
 [data-theme='dark'] {
   --background:
@@ -23,4 +25,6 @@
   --bee-cheeks: #93000a;
   --bee-right-wing: #77786a;
   --bee-left-wing: #46483b;
+  --long-grass: #576500;
+  --side-grass: #889931;
 }
