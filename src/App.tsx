@@ -1,8 +1,7 @@
 import React from 'react';
-import {Route, Routes} from "react-router-dom";
-import {Layout} from "./components/Layout";
-import {Home} from "./pages/Home";
-import { getTheme } from "./service/themeService";
+import { Route, Routes } from "react-router-dom";
+import { Layout } from "./components/Layout";
+import { Home } from "./pages/Home";
 
 function App() {
     return (
