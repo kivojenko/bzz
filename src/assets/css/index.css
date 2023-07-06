@@ -2,3 +2,7 @@ body {
   background: var(--background);
   overflow-x: hidden;
 }
+
+.cloud {
+  fill: #fff !important;
+}
