@@ -8,6 +8,8 @@
   --bee-yellow: #ffdf9a;
   --bee-black:#775a00;
   --bee-cheeks: #ffb4ab;
+  --bee-right-wing: #e4e3d3;
+  --bee-left-wing: #77786a;
 }
 [data-theme='dark'] {
   --background:
@@ -19,4 +21,6 @@
   --bee-yellow: #5a4300;
   --bee-black: #3f2e00;
   --bee-cheeks: #93000a;
+  --bee-right-wing: #77786a;
+  --bee-left-wing: #46483b;
 }

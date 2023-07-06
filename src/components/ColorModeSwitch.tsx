@@ -1,15 +1,17 @@
 import React from 'react';
 import {getTheme, setTheme} from "../service/themeService";
+import { ModeSwitchButtonWithIcons } from "../basicComponents/ModeSwitchButtonWithIcons";
 
 
 export const ColorModeSwitch = () => {
-    function themeChanged() {
+    const sunIcon = "bi bi-sun-fill";
+    const moonIcon = "bi bi-moon-fill";
+
+    function toggleTheme() {
         setTheme(getTheme() === 'light' ? 'dark' : 'light')
     }
 
     return (
-        <button onClick={themeChanged}>
-            {getTheme() === 'light' ? 'Dark' : 'Light'}
-        </button>
+      <ModeSwitchButtonWithIcons icons={[sunIcon, moonIcon]} toggle={toggleTheme}/>
     );
 };

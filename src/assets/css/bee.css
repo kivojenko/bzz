@@ -1,9 +1,9 @@
 .bee-right-wing {
-
+  fill: var(--bee-right-wing);
 }
 
-.bee-cheeks {
-
+.bee-left-wing {
+  fill: var(--bee-left-wing);
 }
 
 .bee-yellow-stripes {
@@ -24,6 +24,7 @@
   position: absolute;
   animation: 10s linear infinite run;
 }
+
 @keyframes run {
   0% {
     left: calc(100% - 100px);
