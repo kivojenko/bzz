@@ -5,7 +5,6 @@ import {Home} from "./pages/Home";
 import { getTheme } from "./service/themeService";
 
 function App() {
-    getTheme();
     return (
         <Routes>
             <Route path="/" element={<Layout/>}>

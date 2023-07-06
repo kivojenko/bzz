@@ -1,14 +1,14 @@
 import {Theme} from "../assets/model/Theme";
 
-export function getTheme() {
-    if (localStorage.getItem('theme')) {
-        return localStorage.getItem('theme')
-    } else {
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-        const defaultTheme = prefersDark ? 'dark' : 'light';
-        setTheme(defaultTheme);
-        return defaultTheme;
-    }
+function getNewTheme(): Theme {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const defaultTheme: Theme = prefersDark ? 'dark' : 'light';
+    setTheme(defaultTheme);
+    return defaultTheme;
+}
+
+export function getTheme(): Theme {
+    return localStorage.getItem('theme') as Theme ?? getNewTheme();
 }
 
 export function setTheme(theme: Theme) {
