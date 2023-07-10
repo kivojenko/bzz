@@ -1,31 +1,24 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 
+export const ModeSwitchButtonWithIcons = (icons: string[], toggle: () => void) => {
+    const [currentIcon, setCurrentIcon] = useState(icons[0]);
 
-export const ModeSwitchButtonWithIcons = (props: ModeSwitchButtonWithIconsProps) => {
-  const [currentIcon, setCurrentIcon] = useState(props.icons[0]);
+    function toggleSwitch() {
+        const nextIcon = findNextIcon(currentIcon, icons);
+        setCurrentIcon(nextIcon);
+        toggle();
+    }
 
-  function toggleSwitch() {
-    setCurrentIcon(findNextIcon(currentIcon, props.icons));
-    props.toggle();
-  }
-
-  return (
-    <button type="button"
-            className={"btn btn-outline-secondary btn-lg " + currentIcon}
-            onClick={toggleSwitch}/>
-  );
+    return (
+        <button type="button"
+                className={"btn btn-outline-secondary btn-lg " + currentIcon}
+                onClick={toggleSwitch}>
+        </button>
+    );
 }
 
 function findNextIcon(currentIcon: string, icons: string[]) {
-  const currentIndex = icons.indexOf(currentIcon);
-  if (currentIndex < 0) {
-    return "";
-  }
-  const newIndex = (currentIndex + 1) % icons.length;
-  return icons[newIndex];
-}
-
-export interface ModeSwitchButtonWithIconsProps {
-  icons: string[],
-  toggle: () => void
+    const currentIndex = icons.indexOf(currentIcon);
+    const newIndex = (currentIndex + 1) % icons.length;
+    return icons[newIndex];
 }

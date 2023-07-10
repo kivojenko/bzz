@@ -1,3 +1,8 @@
+.grass-container {
+  position: relative;
+  overflow-x: hidden;
+}
+
 .grass {
   position: absolute;
 }

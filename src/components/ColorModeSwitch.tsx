@@ -1,6 +1,6 @@
-import React from 'react';
 import {getTheme, setTheme} from "../service/themeService";
 import {ModeSwitchButtonWithIcons} from "../basicComponents/ModeSwitchButtonWithIcons";
+import {CloudComponent} from "../basicComponents/CloudComponent";
 
 
 export const ColorModeSwitch = () => {
@@ -10,10 +10,7 @@ export const ColorModeSwitch = () => {
     function toggleTheme() {
         setTheme(getTheme() === 'light' ? 'dark' : 'light')
     }
+    const button = ModeSwitchButtonWithIcons(getTheme() === 'light' ? [sunIcon, moonIcon] : [moonIcon, sunIcon], toggleTheme);
 
-    return (
-        <ModeSwitchButtonWithIcons
-            icons={getTheme() === 'light' ? [sunIcon, moonIcon] : [moonIcon, sunIcon]}
-            toggle={toggleTheme}/>
-    );
+    return CloudComponent('cloud_small_2', button);
 };

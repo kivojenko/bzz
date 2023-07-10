@@ -1,6 +1,33 @@
 .cloud {
-  fill: var(--cloud) !important;
+  margin: 0 7px;
+  display: inline-block;
+  background-color: var(--cloud) !important;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
 }
-.cloud-text {
-  fill: var(--secondary-color) !important;
+
+.cloud a {
+  height: 110px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0 30px;
+  padding-top: 10px;
+}
+
+.cloud .btn-outline-secondary {
+  height: 90px;
+  width: 90px;
+}
+
+.cloud .btn-outline-secondary, .cloud a {
+  background: var(--cloud) !important;
+  border-color: var(--cloud) !important;
+  color: var(--secondary-color) !important;
+}
+.cloud .btn-outline-secondary:hover, .cloud a:hover {
+  background: var(--secondary-color) !important;
+  border-color: var(--secondary-color) !important;
+  color: var(--cloud) !important;
 }

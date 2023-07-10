@@ -1,7 +1,8 @@
 // @ts-ignore
 import music from './../assets/music/main_theme.mp3'
-import React, { useMemo } from "react";
-import { ModeSwitchButtonWithIcons } from "../basicComponents/ModeSwitchButtonWithIcons";
+import {ModeSwitchButtonWithIcons} from "../basicComponents/ModeSwitchButtonWithIcons";
+import {CloudComponent} from "../basicComponents/CloudComponent";
+import {useMemo} from "react";
 
 export const MusicPlayerSwitch = () => {
     const pauseIcon = "bi bi-volume-mute-fill";
@@ -20,8 +21,8 @@ export const MusicPlayerSwitch = () => {
         }
     }
 
-    return (
-      <ModeSwitchButtonWithIcons icons={[pauseIcon, playIcon]} toggle={toggleAudio}/>
-    );
+    const button = ModeSwitchButtonWithIcons([pauseIcon, playIcon], toggleAudio);
+
+    return CloudComponent('cloud_small_1', button);
 
 }

@@ -10,7 +10,7 @@ export const Home = () => {
             <div id="bee">
                 <Bee width="100px" height="100px"/>
             </div>
-            <div>
+            <div id="grass-container">
                 <Grass id="bottom-grass-1" className="grass"/>
                 <Grass id="bottom-grass-2" className="grass"/>
                 <Grass id="bottom-grass-3" className="grass"/>

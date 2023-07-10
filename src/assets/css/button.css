@@ -1,14 +1,3 @@
-.btn-outline-secondary {
-  margin: 0 10px;
-  background: var(--cloud) !important;
-  border-color: var(--cloud) !important;
-  color: var(--secondary-color) !important;
-}
-.btn-outline-secondary:hover {
-  background: var(--secondary-color) !important;
-  border-color: var(--secondary-color) !important;
-  color: var(--cloud) !important;
-}
 .btn-group-lg>.btn, .btn-lg {
   padding: .375rem 0.75rem;;
   font-size: 1.5rem;
