@@ -1,6 +1,6 @@
 import React from "react";
 
-export const CloudComponent = (backgroundImage: string, content: JSX.Element | string) => {
+export const Cloud = (backgroundImage: string, content: JSX.Element | string) => {
   const backgroundImageSVG = `url(` + require('../../assets/images/' + backgroundImage + '.svg') + `)`;
   return (
     <div

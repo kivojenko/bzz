@@ -1,6 +1,6 @@
 import {getTheme, setTheme} from "../../service/themeService";
 import {ModeSwitchButtonWithIcons} from "../basicComponents/ModeSwitchButtonWithIcons";
-import {CloudComponent} from "../basicComponents/CloudComponent";
+import {Cloud} from "../basicComponents/Cloud";
 
 
 export const ColorModeSwitch = () => {
@@ -12,5 +12,5 @@ export const ColorModeSwitch = () => {
     }
     const button = ModeSwitchButtonWithIcons(getTheme() === 'light' ? [sunIcon, moonIcon] : [moonIcon, sunIcon], toggleTheme);
 
-    return CloudComponent('cloud_small_2', button);
+    return Cloud('cloud_small_2', button);
 };
