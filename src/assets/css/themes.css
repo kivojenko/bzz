@@ -1,7 +1,7 @@
 :root {
   --background:
       #fff linear-gradient(0deg,
-      #576500 46%,
+      #576500 26%,
       #889931 71%,
       #a2b449 92%) fixed;
   --secondary-color: #006685;
@@ -21,7 +21,7 @@
 [data-theme='dark'] {
   --background:
       #fff linear-gradient(0deg,
-      #2c3400 46%,
+      #2c3400 26%,
       #414c00 71%,
       #4c5800 92%) fixed;
   --secondary-color: #bfe9ff;

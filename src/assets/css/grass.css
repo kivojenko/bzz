@@ -1,6 +1,7 @@
-.grass-container {
-  position: relative;
-  overflow-x: hidden;
+#background-world {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
 }
 
 .grass {

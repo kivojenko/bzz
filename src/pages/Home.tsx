@@ -6,7 +6,7 @@ import {ReactComponent as RightGrass} from '../assets/images/grass_right.svg'
 
 export const Home = () => {
     return (
-        <>
+        <div id="background-world">
             <div id="bee">
                 <Bee width="100px" height="100px"/>
             </div>
@@ -19,6 +19,6 @@ export const Home = () => {
                 <LeftGrass id="left-grass-2" className="grass side-grass side-grass-2"/>
                 <RightGrass id="right-grass-2" className="grass side-grass side-grass-2"/>
             </div>
-        </>
+        </div>
     );
 }

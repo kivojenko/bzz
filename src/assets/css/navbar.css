@@ -3,4 +3,5 @@
       linear-gradient(90deg, var(--navbar-main) 21px, transparent 1%) center,
       linear-gradient(var(--navbar-main) 21px, transparent 1%) center, white;
   background-size: 22px 22px;
+  flex-wrap: nowrap;
 }

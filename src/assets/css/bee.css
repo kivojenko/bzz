@@ -20,7 +20,7 @@
 }
 
 #bee {
-  bottom: 40%;
+  bottom: 40vh;
   position: absolute;
   animation: 10s linear infinite run;
 }

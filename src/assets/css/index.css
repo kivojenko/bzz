@@ -1,13 +1,19 @@
+
 body {
-  overflow-x: hidden;
-  background: var(--background);
+    background: var(--background);
+    overflow: hidden;
+    width: 100vw;
 }
+
 #root {
 }
 
 .container-fluid {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  padding: 0 !important;
-
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 0 !important;
+    position: relative;
+    left: 0;
+    top:0;
+    overflow: hidden;
 }
