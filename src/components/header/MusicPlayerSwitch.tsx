@@ -12,6 +12,7 @@ export const MusicPlayerSwitch = () => {
         return new Audio(music)
     }, []);
     audio.volume = 0.5;
+    audio.loop = true;
 
     function toggleAudio() {
         if (audio.paused) {
