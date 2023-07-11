@@ -20,9 +20,10 @@
 }
 
 #bee {
-  bottom: 40vh;
+  bottom: 50vh;
   position: absolute;
   animation: 10s linear infinite run;
+  z-index: 3;
 }
 
 @keyframes run {

@@ -25,38 +25,45 @@
 }
 
 #bottom-grass-1 {
-  bottom: 20vh;
-  height: 20vh;
+  bottom: 42vh;
+  height: 30vh;
+  z-index: 1;
 }
 #bottom-grass-2 {
-  bottom: 13vh;
-  height: 25vh;
+  bottom: 25vh;
+  height: 45vh;
+  z-index: 2;
 }
 #bottom-grass-3 {
   bottom: 0;
-  height: 35vh;
+  height: 70vh;
+  z-index: 4;
 }
 
 #left-grass-1 {
   left: 5vh;
   bottom: 0;
   height: 64vh;
+  z-index: 5;
 }
 
 #right-grass-1 {
   right: 5vh;
   bottom: 0;
   height: 64vh;
+  z-index: 5;
 }
 
 #left-grass-2 {
   left: 0;
   bottom: 0;
   height: 84vh;
+  z-index: 6;
 }
 
 #right-grass-2 {
   right: 0;
   bottom: 0;
   height: 84vh;
+  z-index: 6;
 }
