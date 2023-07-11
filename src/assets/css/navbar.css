@@ -5,3 +5,9 @@
   background-size: 22px 22px;
   flex-wrap: nowrap;
 }
+
+.nav-item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}

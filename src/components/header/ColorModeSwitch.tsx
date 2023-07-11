@@ -1,4 +1,4 @@
-import {getTheme, setTheme} from "../service/themeService";
+import {getTheme, setTheme} from "../../service/themeService";
 import {ModeSwitchButtonWithIcons} from "../basicComponents/ModeSwitchButtonWithIcons";
 import {CloudComponent} from "../basicComponents/CloudComponent";
 

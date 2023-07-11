@@ -1,5 +1,5 @@
 // @ts-ignore
-import music from './../assets/music/main_theme.mp3'
+import music from '../../assets/music/main_theme.mp3'
 import {ModeSwitchButtonWithIcons} from "../basicComponents/ModeSwitchButtonWithIcons";
 import {CloudComponent} from "../basicComponents/CloudComponent";
 import {useMemo} from "react";

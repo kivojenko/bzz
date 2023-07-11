@@ -2,9 +2,13 @@
   margin: 0 0.4rem;
   display: inline-block;
   background-color: var(--cloud) !important;
+
   -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
   -webkit-mask-position: center;
+  mask-position: center;
   -webkit-mask-size: contain;
+  mask-size: contain;
 }
 
 .cloud a {
@@ -12,11 +16,12 @@
   display: flex;
   align-items: center;
   text-decoration: none;
-  padding: 0.7rem 1rem 0;
+  padding: 0.9rem 1rem 0;
 }
 
 .cloud .btn-outline-secondary {
-  width: 4rem;
+  width: 5rem;
+  height: 4rem;
 }
 
 .cloud .btn-outline-secondary, .cloud a {
