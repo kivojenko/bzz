@@ -8,11 +8,11 @@ export const Header = () => {
 
     return (
         <header>
-            <nav className="navbar navbar-expand-lg  px-4 py-2">
+            <nav className="navbar navbar-expand-lg  px-3 py-2">
                 <span className="navbar-brand mb-0 h1">
                     {brand}
                 </span>
-                <span>
+                <span className="nav-item mb-0 h1">
                     <MusicPlayerSwitch/>
                     <ColorModeSwitch/>
                 </span>

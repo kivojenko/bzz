@@ -1,5 +1,5 @@
 .cloud {
-  margin: 0 7px;
+  margin: 0 0.4rem;
   display: inline-block;
   background-color: var(--cloud) !important;
   -webkit-mask-repeat: no-repeat;
@@ -8,17 +8,15 @@
 }
 
 .cloud a {
-  height: 110px;
+  height: 5.5rem;
   display: flex;
   align-items: center;
   text-decoration: none;
-  padding: 0 30px;
-  padding-top: 10px;
+  padding: 0.7rem 1rem 0;
 }
 
 .cloud .btn-outline-secondary {
-  height: 90px;
-  width: 90px;
+  width: 4rem;
 }
 
 .cloud .btn-outline-secondary, .cloud a {
