@@ -15,7 +15,6 @@ export const AppSettingsProvider: React.FC<AppSettingsProviderProps> = ({ childr
     }
     return AppSettingDefaultValue;
   });
-  console.log(settings)
 
   useEffect(() => {
     localStorage.setItem('appSettings', JSON.stringify(settings));
@@ -47,7 +46,7 @@ export const AppSettingsProvider: React.FC<AppSettingsProviderProps> = ({ childr
       ...prevSettings,
       soundEnabled: !prevSettings.soundEnabled,
     }));
-    settings.soundEnabled ? audio.play() : audio.pause();
+    settings.soundEnabled ? audio.pause() : audio.play();
   };
 
   return (
