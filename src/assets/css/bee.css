@@ -23,11 +23,11 @@
   bottom: 50vh;
   position: absolute;
   z-index: 3;
-  left: 30%;
+  animation: 10s linear infinite run;
 }
 
-.animations-enabled #bee {
-  animation: 10s linear infinite run;
+.animations-disabled #bee {
+  animation-play-state: paused;
 }
 
 @keyframes run {

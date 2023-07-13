@@ -9,8 +9,13 @@ interface AppSettingsProviderProps {
 
 export const AppSettingsProvider: React.FC<AppSettingsProviderProps> = ({ children, }) => {
   const [settings, setSettings] = useState<AppSettings>(() => {
-    return JSON.parse(localStorage?.getItem('appSettings') ?? "") ?? AppSettingDefaultValue;
+    const storedSettings = localStorage.getItem('appSettings');
+    if (storedSettings) {
+      return JSON.parse(storedSettings);
+    }
+    return AppSettingDefaultValue;
   });
+  console.log(settings)
 
   useEffect(() => {
     localStorage.setItem('appSettings', JSON.stringify(settings));
