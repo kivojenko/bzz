@@ -22,8 +22,12 @@
 #bee {
   bottom: 50vh;
   position: absolute;
-  animation: 10s linear infinite run;
   z-index: 3;
+  left: 30%;
+}
+
+.animations-enabled #bee {
+  animation: 10s linear infinite run;
 }
 
 @keyframes run {

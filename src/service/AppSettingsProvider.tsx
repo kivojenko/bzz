@@ -16,7 +16,7 @@ export const AppSettingsProvider: React.FC<AppSettingsProviderProps> = ({ childr
     return AppSettingDefaultValue;
   });
 
-  document.body.setAttribute('data-theme', settings.theme);
+  //document.body.setAttribute('data-theme', settings.theme);
 
   useEffect(() => {
     localStorage.setItem('appSettings', JSON.stringify(settings));
@@ -28,7 +28,7 @@ export const AppSettingsProvider: React.FC<AppSettingsProviderProps> = ({ childr
       ...prevSettings,
       theme: newTheme,
     }));
-    document.body.setAttribute('data-theme', newTheme);
+    //document.body.setAttribute('data-theme', newTheme);
   };
 
   const toggleAnimations = () => {
