@@ -16,6 +16,8 @@ export const AppSettingsProvider: React.FC<AppSettingsProviderProps> = ({ childr
     return AppSettingDefaultValue;
   });
 
+  document.body.setAttribute('data-theme', settings.theme);
+
   useEffect(() => {
     localStorage.setItem('appSettings', JSON.stringify(settings));
   }, [settings]);
@@ -28,13 +30,13 @@ export const AppSettingsProvider: React.FC<AppSettingsProviderProps> = ({ childr
     }));
     document.body.setAttribute('data-theme', newTheme);
   };
-  //
-  // const toggleAnimations = () => {
-  //   setSettings((prevSettings) => ({
-  //     ...prevSettings,
-  //     animationsEnabled: !prevSettings.animationsEnabled,
-  //   }));
-  // };
+
+  const toggleAnimations = () => {
+    setSettings((prevSettings) => ({
+      ...prevSettings,
+      animationsEnabled: !prevSettings.animationsEnabled,
+    }));
+  };
 
   const audio = useMemo(() => {
     return new Audio(music)
@@ -59,7 +61,7 @@ export const AppSettingsProvider: React.FC<AppSettingsProviderProps> = ({ childr
       value={{
         settings,
         toggleTheme,
-        // toggleAnimations,
+        toggleAnimations,
         toggleSound,
       }}
     >

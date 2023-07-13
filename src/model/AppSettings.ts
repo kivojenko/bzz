@@ -21,14 +21,14 @@ function getDefaultTheme(): Theme {
 export interface AppSettingsContextProps {
   settings: AppSettings;
   toggleTheme: () => void;
-  // toggleAnimations: () => void;
+  toggleAnimations: () => void;
   toggleSound: () => void;
 }
 
 export const AppSettingsContext = createContext<AppSettingsContextProps>({
   settings: AppSettingDefaultValue,
   toggleTheme: () => {},
-  // toggleAnimations: () => {},
+  toggleAnimations: () => {},
   toggleSound: () => {},
 });
 

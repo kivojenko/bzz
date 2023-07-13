@@ -2,6 +2,7 @@ import React from 'react'
 import { MusicPlayerSwitch } from "./MusicPlayerSwitch";
 import { ColorModeSwitch } from "./ColorModeSwitch";
 import { Logo } from "./Logo";
+import { AnimationsSwitch } from "./AnimationsSwitch";
 
 export const Header = () => {
 
@@ -14,6 +15,7 @@ export const Header = () => {
                 <span className="nav-item mb-0 h1">
                     <MusicPlayerSwitch/>
                     <ColorModeSwitch/>
+                    <AnimationsSwitch/>
                 </span>
             </nav>
         </header>

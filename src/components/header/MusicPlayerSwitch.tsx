@@ -1,14 +1,20 @@
-import { ModeSwitchButtonWithIcons } from "../basicComponents/ModeSwitchButtonWithIcons";
-import { Cloud } from "../basicComponents/Cloud";
+import { IconsMap } from "../basicComponents/ModeSwitchButtonWithIcons";
 import { useAppSettings } from "../../model/AppSettings";
+import { ModeSwitchButtonWithIconsOnCloud } from "../basicComponents/ModeSwitchButtonWithIconsOnCloud";
 
 export const MusicPlayerSwitch = () => {
-    const { toggleSound } = useAppSettings();
-    const pauseIcon = "bi bi-volume-mute-fill";
-    const playIcon = "bi bi-volume-up-fill";
+  const { settings, toggleSound } = useAppSettings();
+  const pauseIcon = "bi bi-volume-mute-fill";
+  const playIcon = "bi bi-volume-up-fill";
 
-    const button = ModeSwitchButtonWithIcons([pauseIcon, playIcon], toggleSound);
+  const iconsMap: IconsMap = {
+    "true": playIcon,
+    "false": pauseIcon
+  }
 
-    return Cloud('cloud_small_1', button);
-
+  return <ModeSwitchButtonWithIconsOnCloud
+    refState={settings.soundEnabled}
+    toggle={toggleSound}
+    iconsMap={iconsMap}
+    cloudFileName='cloud_small_1'/>;
 }

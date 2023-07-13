@@ -1,24 +1,27 @@
-import React, {useState} from "react";
+import React from "react";
 
-export const ModeSwitchButtonWithIcons = (icons: string[], toggle: () => void) => {
-    const [currentIcon, setCurrentIcon] = useState(icons[0]);
+export type IconsMap = { [key: string]: string };
 
-    function toggleSwitch() {
-        const nextIcon = findNextIcon(currentIcon, icons);
-        setCurrentIcon(nextIcon);
-        toggle();
-    }
-
-    return (
-        <button type="button"
-                className={"btn btn-outline-secondary btn-lg " + currentIcon}
-                onClick={toggleSwitch}>
-        </button>
-    );
+export interface ModeSwitchButtonWithIconsProps {
+  refState: any,
+  iconsMap: IconsMap,
+  toggle: () => void
 }
 
-function findNextIcon(currentIcon: string, icons: string[]) {
-    const currentIndex = icons.indexOf(currentIcon);
-    const newIndex = (currentIndex + 1) % icons.length;
-    return icons[newIndex];
+export const ModeSwitchButtonWithIcons = (props: ModeSwitchButtonWithIconsProps) => {
+  console.log(props.refState)
+  console.log(props.iconsMap[String(props.refState)])
+
+  const currentIcon = props.iconsMap[String(props.refState)];
+
+  function toggleSwitch() {
+    props.toggle();
+  }
+
+  return (
+    <button type="button"
+            className={"btn btn-outline-secondary btn-lg " + currentIcon}
+            onClick={toggleSwitch}>
+    </button>
+  );
 }
