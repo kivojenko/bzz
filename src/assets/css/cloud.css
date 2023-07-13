@@ -1,5 +1,5 @@
 .cloud {
-  margin: 0 0.4rem;
+  margin: 0 0.3rem;
   display: inline-block;
   background-color: var(--cloud) !important;
 
@@ -20,7 +20,7 @@
 }
 
 .cloud .btn-outline-secondary {
-  width: 5rem;
+  width: 4rem;
   height: 4rem;
 }
 

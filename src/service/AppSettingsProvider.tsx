@@ -9,14 +9,8 @@ interface AppSettingsProviderProps {
 
 export const AppSettingsProvider: React.FC<AppSettingsProviderProps> = ({ children, }) => {
   const [settings, setSettings] = useState<AppSettings>(() => {
-    const storedSettings = localStorage.getItem('appSettings');
-    if (storedSettings) {
-      return JSON.parse(storedSettings);
-    }
-    return AppSettingDefaultValue;
+    return JSON.parse(localStorage?.getItem('appSettings') ?? "") ?? AppSettingDefaultValue;
   });
-
-  //document.body.setAttribute('data-theme', settings.theme);
 
   useEffect(() => {
     localStorage.setItem('appSettings', JSON.stringify(settings));
@@ -28,7 +22,6 @@ export const AppSettingsProvider: React.FC<AppSettingsProviderProps> = ({ childr
       ...prevSettings,
       theme: newTheme,
     }));
-    //document.body.setAttribute('data-theme', newTheme);
   };
 
   const toggleAnimations = () => {
@@ -49,11 +42,7 @@ export const AppSettingsProvider: React.FC<AppSettingsProviderProps> = ({ childr
       ...prevSettings,
       soundEnabled: !prevSettings.soundEnabled,
     }));
-    if (settings.soundEnabled) {
-      audio.play();
-    } else {
-      audio.pause();
-    }
+    settings.soundEnabled ? audio.play() : audio.pause();
   };
 
   return (

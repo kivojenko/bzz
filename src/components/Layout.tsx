@@ -6,11 +6,12 @@ import { useAppSettings } from "../model/AppSettings";
 export const Layout = () => {
   const { settings } = useAppSettings();
   return (
-    <div className={"container-fluid " + settings.animationsEnabled ? "animations-enabled" : "animations-disabled"}
-         data-theme={settings.theme}
-    >
-      <Header/>
-      <Outlet/>
+    <div className="container-fluid">
+      <div className={settings.animationsEnabled ? "animations-enabled" : "animations-disabled"}
+           data-theme={settings.theme}>
+        <Header/>
+        <Outlet/>
+      </div>
     </div>
   );
 };

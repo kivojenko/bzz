@@ -9,19 +9,12 @@ export interface ModeSwitchButtonWithIconsProps {
 }
 
 export const ModeSwitchButtonWithIcons = (props: ModeSwitchButtonWithIconsProps) => {
-  console.log(props.refState)
-  console.log(props.iconsMap[String(props.refState)])
-
   const currentIcon = props.iconsMap[String(props.refState)];
-
-  function toggleSwitch() {
-    props.toggle();
-  }
 
   return (
     <button type="button"
             className={"btn btn-outline-secondary btn-lg " + currentIcon}
-            onClick={toggleSwitch}>
+            onClick={props.toggle}>
     </button>
   );
 }
