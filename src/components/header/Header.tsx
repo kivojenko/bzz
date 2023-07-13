@@ -1,6 +1,6 @@
 import React from 'react'
-import {MusicPlayerSwitch} from "./MusicPlayerSwitch";
-import {ColorModeSwitch} from "./ColorModeSwitch";
+import { MusicPlayerSwitch } from "./MusicPlayerSwitch";
+import { ColorModeSwitch } from "./ColorModeSwitch";
 import { Logo } from "./Logo";
 
 export const Header = () => {
