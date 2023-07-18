@@ -23,38 +23,4 @@
   position: absolute;
   transition: 1s linear;
   z-index: 10;
-  /*animation: 10s linear infinite run;*/
-}
-
-.animations-disabled #bee {
-  z-index: 10;
-  /*animation: sleep 2s ease forwards;*/
-}
-
-@keyframes run {
-  0% {
-    left: calc(100% - 100px);
-  }
-  48% {
-    transform: rotateY(0deg);
-  }
-  50% {
-    left: 0;
-    transform: rotateY(180deg);
-  }
-  98% {
-    transform: rotateY(180deg);
-  }
-  100% {
-    left: calc(100% - 100px);
-    transform: rotateY(0deg);
-  }
-}
-
-@keyframes sleep {
-  0% {
-  }
-  100% {
-    bottom: 0;
-  }
 }
