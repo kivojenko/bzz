@@ -1,21 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Direction, directionsAngles } from "../../model/Direction";
 
-const anglesMatrix = [
-  [[180, 270], [90, 270], [90, 180]],
-  [[180, 360], [0, 360], [0, 180]],
-  [[270, 360], [-90, 90], [0, 90]]
+const directionsMatrix: Direction[][] = [
+  ["north_east", "east", "south_east"],
+  ["north", "any", "south"],
+  ["north_west", "west", "south_west"]
 ]
-
-const anglesSides = {
-  north_east: [0, 90],
-  north: [0, 180],
-  north_west: [90, 180],
-  west: [90, 270],
-  south_west: [180, 270],
-  south: [180, 360],
-  south_east: [270, 360],
-  east: [-90, 90]
-}
 
 function getAngleInRadians(angle: number) {
   return (angle * Math.PI) / 180;
@@ -30,60 +20,62 @@ function getLeftDistance(angle: number, distance: number) {
   return distance * Math.cos(getAngleInRadians(angle));
 }
 
-function getNewAngle(leftChange: number, bottomChange: number) {
-  let [minimum, maximum] = [0, 360]
-  switch (bottomChange) {
-    case 1:
-      switch (leftChange) {
-        case -1:
-
-          break;
-        case 1:
-          break;
-      }
-      break;
-    case -1:
-      maximum = 360;
-      break;
-  }
+function getNewAngle(leftChange: number, bottomChange: number) : number {
+  const direction = directionsMatrix[leftChange][bottomChange];
+  let [minimum, maximum] = directionsAngles[direction];
   const newAngle = Math.random() * (maximum - minimum) + minimum;
   return newAngle % 360;
+}
+
+function getCoordinates(angle: number, distance: number) {
+  const leftOffset = getLeftDistance(angle, distance);
+  const bottomOffset = getBottomDistance(angle, distance);
+  return [leftOffset, bottomOffset];
+}
+
+// 0 - up-collision
+// 1 - no collision
+// 2 - down-collision
+function getCollisions(x: number, y: number) {
+  let yCollision = 1;
+  let xCollision = 1;
+  if (x < 50) {
+    xCollision = 0;
+  } else if (x > window.innerWidth - 150) {
+    xCollision = 2;
+  }
+  if (y < 50) {
+    yCollision = 0;
+  } else if (y > window.innerHeight - 150) {
+    yCollision = 2;
+  }
+  return [xCollision, yCollision];
 }
 
 export const useBeePosition = () => {
   const distance = 100;
   const [left, setLeft] = useState(0);
   const [bottom, setBottom] = useState(window.innerHeight * 0.5);
-  const [angle, setAngle] = useState(0);
+  const [angle, setAngle] = useState<number>(0);
+  const [rotateAngle, setRotateAngle] = useState<number>(0);
+  const [rotateX, setRotateX] = useState<boolean>(false);
+  const [rotateY, setRotateY] = useState<boolean>(true);
 
-  function moveBee(angle: number, distance: number): void {
-    const leftOffset = getLeftDistance(angle, distance);
-    const bottomOffset = getBottomDistance(angle, distance);
+  useEffect(() => {
+    setTimeout(() => {
+      let [leftOffset, bottomOffset] = getCoordinates(angle, distance);
+      let [leftChange, bottomChange] = getCollisions(left + leftOffset, bottom + bottomOffset);
+      if (leftChange != 1 || bottomChange != 1) {
+        setAngle(getNewAngle(leftChange, bottomChange));
+        [leftOffset, bottomOffset] = getCoordinates(angle, distance);
+        setRotateY(angle < 90 || angle > 270);
+        setRotateX(false);
+        setRotateAngle(angle % 180 )
+      }
+      setLeft(Math.round(left + leftOffset));
+      setBottom(Math.round(bottom + bottomOffset));
+    }, 1000);
+  });
 
-    setLeft(Math.round(left + leftOffset));
-    setBottom(Math.round(bottom + bottomOffset));
-  }
-
-  setTimeout(() => {
-    const leftToMove = getLeftDistance(angle, distance);
-    const bottomToMove = getBottomDistance(angle, distance);
-    let bottomChange = 0;
-    let leftChange = 0;
-    if (left + leftToMove < 100) {
-      leftChange = -1;
-    } else if (left + leftToMove > window.innerWidth - 100) {
-      leftChange = 1;
-    }
-    if (bottom + bottomToMove < 100) {
-      bottomChange = -1;
-    } else if (bottom + bottomToMove > window.innerHeight - 100) {
-      bottomChange = 1;
-    }
-    if (leftChange != 0 || bottomChange != 0 || Math.random() > 0.9) {
-      setAngle(getNewAngle(leftChange, bottomChange));
-    }
-    moveBee(angle, distance)
-  }, 1000);
-
-  return [left, bottom, 0, 0, angle]
+  return [left, bottom, rotateX, rotateY, rotateAngle]
 }

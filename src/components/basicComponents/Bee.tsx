@@ -13,9 +13,9 @@ export const Bee = () => {
         left: x + 'px',
         bottom: y + 'px',
         transform:
-          "rotateX(" + 0 + "deg) " +
-          "rotateY(" + ((270 < angle || angle < 90) ? 180 : 0) + "deg) " +
-          "rotate(" + angle % 180 + "deg)"
+          "rotateX(" + (rotateX ? 180 : 0) + "deg) " +
+          "rotateY(" + (rotateY ? 180 : 0) + "deg) " +
+          "rotate(" + angle + "deg)"
       }}/>
     </div>);
 }
