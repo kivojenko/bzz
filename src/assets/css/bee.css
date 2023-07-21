@@ -21,7 +21,7 @@
 
 #bee {
   position: absolute;
-  transition-property: bottom, left;
+  transition-property: bottom, left, transform;
   transition-duration: 1s;
   transition-timing-function: linear;
   z-index: 10;

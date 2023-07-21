@@ -12,23 +12,27 @@ function getAngleInRadians(angle: number) {
   return (angle * Math.PI) / 180;
 }
 
-function getBottomDistance(angle: number, distance: number) {
+function getYDistance(angle: number, distance: number) {
   return distance * Math.sin(getAngleInRadians(angle));
 }
 
 
-function getLeftDistance(angle: number, distance: number) {
+function getXDistance(angle: number, distance: number) {
   return distance * Math.cos(getAngleInRadians(angle));
+}
+
+function generateRandomNumber(minimum: number, maximum: number) {
+  return Math.random() * (maximum - minimum) + minimum;
 }
 
 function getNewAngle(leftChange: number, bottomChange: number) : number {
   const direction = directionsMatrix[leftChange][bottomChange];
-  let [minimum, maximum] = directionsAngles[direction];
-  const newAngle = Math.random() * (maximum - minimum) + minimum;
+  const [minimum, maximum] = directionsAngles[direction];
+  const newAngle = generateRandomNumber(minimum, maximum);
   return newAngle % 360;
 }
 
-function countRotateAngle(angle: number) {
+function getRotateAngle(angle: number) {
   if (angle > -90 && angle < 90) {
     return angle;
   } else if (angle > 270) {
@@ -39,14 +43,14 @@ function countRotateAngle(angle: number) {
 }
 
 function getCoordinates(angle: number, distance: number) {
-  const leftOffset = getLeftDistance(angle, distance);
-  const bottomOffset = getBottomDistance(angle, distance);
-  return [leftOffset, bottomOffset];
+  const x = getXDistance(angle, distance);
+  const y = getYDistance(angle, distance);
+  return [x, y];
 }
 
-// 0 - up-collision
+// 0 - low-collision
 // 1 - no collision
-// 2 - down-collision
+// 2 - high-collision
 function getCollisions(x: number, y: number) {
   let yCollision = 1;
   let xCollision = 1;
@@ -64,32 +68,35 @@ function getCollisions(x: number, y: number) {
 }
 
 export const useBeePosition = () => {
-  const distance = 100;
+  const distance = 50;
   const { settings } = useAppSettings();
   const [left, setLeft] = useState(0);
   const [bottom, setBottom] = useState(window.innerHeight * 0.5);
   const [angle, setAngle] = useState<number>(0);
+  //let nextAngles: number[] = [0, 0, 0, 0, 0];
   const [rotateAngle, setRotateAngle] = useState<number>(0);
   const [rotateX, setRotateX] = useState<boolean>(false);
+  //let nextRotatesX = [false, false, false, false, false];
   const [rotateY, setRotateY] = useState<boolean>(true);
   const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | undefined>(undefined);
 
   function planMovement() {
+    let [leftOffset, bottomOffset] = getCoordinates(angle, distance);
+    let [leftChange, bottomChange] = getCollisions(left + leftOffset, bottom + bottomOffset);
     if (settings.animationsEnabled) {
-      let [leftOffset, bottomOffset] = getCoordinates(angle, distance);
-      let [leftChange, bottomChange] = getCollisions(left + leftOffset, bottom + bottomOffset);
       if (leftChange !== 1 || bottomChange !== 1 || Math.random() > 0.85) {
         setAngle(getNewAngle(leftChange, bottomChange));
         [leftOffset, bottomOffset] = getCoordinates(angle, distance);
-        setRotateY(angle < 90 || angle > 270);
-        setRotateX(false);
-        setRotateAngle(countRotateAngle(angle) )
       }
       setRotateY(angle < 90 || angle > 270);
       setRotateX(false);
-      setRotateAngle(countRotateAngle(angle))
+      setRotateAngle(getRotateAngle(angle))
       setLeft(Math.round(left + leftOffset));
       setBottom(Math.round(bottom + bottomOffset));
+    } else if (bottomChange > 0) {
+      setRotateX(false);
+      setRotateAngle(0)
+      setBottom(Math.round(bottom - distance))
     }
   }
 
@@ -97,10 +104,10 @@ export const useBeePosition = () => {
     clearTimeout(timeoutId);
     const timeout = setTimeout(() => {
       planMovement();
-    }, 1000);
+    }, 500);
     setTimeoutId(timeout);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [left, settings.animationsEnabled])
+  }, [left, bottom, settings.animationsEnabled])
 
   return [left, bottom, rotateX, rotateY, rotateAngle];
 }
