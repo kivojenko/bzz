@@ -7,8 +7,7 @@ export const Layout = () => {
   const { settings } = useAppSettings();
   return (
     <div className="container-fluid">
-      <div className={settings.animationsEnabled ? "animations-enabled" : "animations-disabled"}
-           data-theme={settings.theme}>
+      <div data-theme={settings.theme}>
         <Header/>
         <Outlet/>
       </div>

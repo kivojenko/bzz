@@ -1,14 +1,9 @@
 
-body {
-    background: var(--background);
-    overflow: hidden;
-    width: 100vw;
-}
-
-#root {
-}
 
 .container-fluid {
+    background: var(--background);
+    width: 100vw;
+    height: 100vh;
     margin-left: 0 !important;
     margin-right: 0 !important;
     padding: 0 !important;

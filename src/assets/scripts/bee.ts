@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Direction, directionsAngles } from "../../model/Direction";
+import { useAppSettings } from "../../model/AppSettings";
 
 const directionsMatrix: Direction[][] = [
   ["north_east", "east", "south_east"],
@@ -25,6 +26,16 @@ function getNewAngle(leftChange: number, bottomChange: number) : number {
   let [minimum, maximum] = directionsAngles[direction];
   const newAngle = Math.random() * (maximum - minimum) + minimum;
   return newAngle % 360;
+}
+
+function countRotateAngle(angle: number) {
+  if (angle > -90 && angle < 90) {
+    return angle;
+  } else if (angle > 270) {
+    return angle - 360;
+  } else {
+    return (angle - 180) * -1;
+  }
 }
 
 function getCoordinates(angle: number, distance: number) {
@@ -54,28 +65,41 @@ function getCollisions(x: number, y: number) {
 
 export const useBeePosition = () => {
   const distance = 100;
+  const { settings } = useAppSettings();
   const [left, setLeft] = useState(0);
   const [bottom, setBottom] = useState(window.innerHeight * 0.5);
   const [angle, setAngle] = useState<number>(0);
   const [rotateAngle, setRotateAngle] = useState<number>(0);
   const [rotateX, setRotateX] = useState<boolean>(false);
   const [rotateY, setRotateY] = useState<boolean>(true);
+  const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | undefined>(undefined);
 
-  useEffect(() => {
-    setTimeout(() => {
+  function planMovement() {
+    if (settings.animationsEnabled) {
       let [leftOffset, bottomOffset] = getCoordinates(angle, distance);
       let [leftChange, bottomChange] = getCollisions(left + leftOffset, bottom + bottomOffset);
-      if (leftChange != 1 || bottomChange != 1) {
+      if (leftChange !== 1 || bottomChange !== 1 || Math.random() > 0.85) {
         setAngle(getNewAngle(leftChange, bottomChange));
         [leftOffset, bottomOffset] = getCoordinates(angle, distance);
         setRotateY(angle < 90 || angle > 270);
         setRotateX(false);
-        setRotateAngle(angle % 180 )
+        setRotateAngle(countRotateAngle(angle) )
       }
+      setRotateY(angle < 90 || angle > 270);
+      setRotateX(false);
+      setRotateAngle(countRotateAngle(angle))
       setLeft(Math.round(left + leftOffset));
       setBottom(Math.round(bottom + bottomOffset));
-    }, 1000);
-  });
+    }
+  }
 
-  return [left, bottom, rotateX, rotateY, rotateAngle]
+  useEffect( () => {
+    clearTimeout(timeoutId);
+    const timeout = setTimeout(() => {
+      planMovement();
+    }, 1000);
+    setTimeoutId(timeout);
+  }, [left])
+
+  return [left, bottom, rotateX, rotateY, rotateAngle];
 }
