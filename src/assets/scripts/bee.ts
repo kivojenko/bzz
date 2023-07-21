@@ -99,7 +99,8 @@ export const useBeePosition = () => {
       planMovement();
     }, 1000);
     setTimeoutId(timeout);
-  }, [left])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [left, settings.animationsEnabled, planMovement])
 
   return [left, bottom, rotateX, rotateY, rotateAngle];
 }
