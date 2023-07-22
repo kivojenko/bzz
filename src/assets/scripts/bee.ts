@@ -70,8 +70,8 @@ function getCollisions(x: number, y: number) {
 export const useBeePosition = () => {
   const distance = 50;
   const { settings } = useAppSettings();
-  const [left, setLeft] = useState(0);
-  const [bottom, setBottom] = useState(window.innerHeight * 0.5);
+  const [left, setLeft] = useState(window.innerWidth * Math.random());
+  const [bottom, setBottom] = useState(window.innerHeight * Math.random());
   const [angle, setAngle] = useState<number>(0);
   //let nextAngles: number[] = [0, 0, 0, 0, 0];
   const [rotateAngle, setRotateAngle] = useState<number>(0);
@@ -84,7 +84,7 @@ export const useBeePosition = () => {
     let [leftOffset, bottomOffset] = getCoordinates(angle, distance);
     let [leftChange, bottomChange] = getCollisions(left + leftOffset, bottom + bottomOffset);
     if (settings.animationsEnabled) {
-      if (leftChange !== 1 || bottomChange !== 1 || Math.random() > 0.85) {
+      if (leftChange !== 1 || bottomChange !== 1 || Math.random() > 0.95) {
         setAngle(getNewAngle(leftChange, bottomChange));
         [leftOffset, bottomOffset] = getCoordinates(angle, distance);
       }

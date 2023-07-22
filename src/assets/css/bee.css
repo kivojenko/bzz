@@ -6,9 +6,14 @@
   fill: var(--bee-left-wing) !important;
 }
 
-.bee-yellow-stripes {
-  fill: var(--bee-yellow) !important;
-  stroke: var(--bee-yellow) !important;
+#bee-1 .bee-yellow-stripes {
+  fill: var(--bee-yellow-1) !important;
+  stroke: var(--bee-yellow-1) !important;
+}
+
+#bee-2 .bee-yellow-stripes {
+  fill: var(--bee-yellow-2) !important;
+  stroke: var(--bee-yellow-2) !important;
 }
 
 .bee-black-stripes {
@@ -19,7 +24,7 @@
   fill: var(--bee-cheeks) !important;
 }
 
-#bee {
+.bee {
   position: absolute;
   transition-property: bottom, left, transform;
   transition-duration: 1s;

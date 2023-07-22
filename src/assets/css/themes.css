@@ -4,7 +4,8 @@
       #576500 15%,
       #4c5800 6%) fixed;
   --secondary-color: #006685;
-  --bee-yellow: #ffdf9a;
+  --bee-yellow-1: #ffdf9a;
+  --bee-yellow-2: #f7be19;
   --bee-black:#775a00;
   --bee-cheeks: #ffb4ab;
   --bee-right-wing: #e4e3d3;
@@ -23,7 +24,8 @@
       #414c00 21%,
       #2c3400 6%) fixed;
   --secondary-color: #bfe9ff;
-  --bee-yellow: #b58a00;
+  --bee-yellow-1: #b58a00;
+  --bee-yellow-2: #967200;
   --bee-black: #3f2e00;
   --bee-cheeks: #93000a;
   --bee-right-wing: #c7c7b7;
