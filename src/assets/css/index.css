@@ -1,9 +1,11 @@
-
-
-.container-fluid {
+#background-world{
     background: var(--background);
     width: 100vw;
     height: 100vh;
+    z-index: 0;
+}
+
+.container-fluid {
     margin-left: 0 !important;
     margin-right: 0 !important;
     padding: 0 !important;

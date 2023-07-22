@@ -54,12 +54,16 @@ function getCoordinates(angle: number, distance: number) {
 function getCollisions(x: number, y: number) {
   let yCollision = 1;
   let xCollision = 1;
-  if (x < 50) {
+  if (x < 50 && x > window.innerWidth - 150) {
+    xCollision = x > window.innerWidth * 0.5 ? 2 : 0;
+  } else if (x < 50) {
     xCollision = 0;
   } else if (x > window.innerWidth - 150) {
     xCollision = 2;
   }
-  if (y < 50) {
+  if (y < 50 && y > window.innerHeight - 150) {
+    yCollision = y > window.innerHeight * 0.5 ? 2 : 0;
+  } else if (y < 50) {
     yCollision = 0;
   } else if (y > window.innerHeight - 150) {
     yCollision = 2;
@@ -68,7 +72,7 @@ function getCollisions(x: number, y: number) {
 }
 
 export const useBeePosition = () => {
-  const distance = 50;
+  const distance = 40;
   const { settings } = useAppSettings();
   const [left, setLeft] = useState(window.innerWidth * Math.random());
   const [bottom, setBottom] = useState(window.innerHeight * Math.random());

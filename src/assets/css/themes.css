@@ -1,8 +1,10 @@
 :root {
   --background:
-      #fff linear-gradient(180deg,
-      #576500 15%,
-      #4c5800 6%) fixed;
+      #4c5800 linear-gradient(
+      0deg,
+      #4c5800 0%,
+      #576500 27%,
+      #889931 100%) fixed;
   --secondary-color: #006685;
   --bee-yellow-1: #ffdf9a;
   --bee-yellow-2: #ffdad6;
@@ -17,12 +19,17 @@
   --navbar-main: #bfe9ff;
   --cloud: #f4faff;
   --cloud-text: #001f2a;
+  --flower-center: #f7be19;
+  --flower-1: #ff897d;
+  --flower-2: #bfe9ff;
 }
 [data-theme='dark'] {
   --background:
-      #fff linear-gradient(180deg,
-      #414c00 21%,
-      #2c3400 6%) fixed;
+      #2c3400 linear-gradient(
+      0deg,
+      #2c3400 0%,
+      #364000 27%,
+      #414c00 100%) fixed;
   --secondary-color: #bfe9ff;
   --bee-yellow-1: #b58a00;
   --bee-yellow-2: #d6783f;
@@ -37,4 +44,7 @@
   --navbar-main: #001f2a;
   --cloud: #003547;
   --cloud-text: #f4faff;
+  --flower-center: #b58a00;
+  --flower-1: #a80710;
+  --flower-2: #0081a7;
 }

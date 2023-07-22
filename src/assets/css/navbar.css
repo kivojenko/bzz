@@ -4,6 +4,7 @@
       linear-gradient(var(--navbar-main) 21px, transparent 1%) center, white;
   background-size: 22px 22px;
   flex-wrap: nowrap;
+  z-index: 3;
 }
 
 .nav-item {

@@ -25,18 +25,18 @@
 }
 
 #bottom-grass-1 {
-  bottom: 42vh;
-  height: 30vh;
+  bottom: 29vh;
+  height: 20vh;
   z-index: 1;
 }
 #bottom-grass-2 {
-  bottom: 25vh;
-  height: 45vh;
+  bottom: 18vh;
+  height: 30vh;
   z-index: 2;
 }
 #bottom-grass-3 {
   bottom: 0;
-  height: 70vh;
+  height: 50vh;
   z-index: 4;
 }
 

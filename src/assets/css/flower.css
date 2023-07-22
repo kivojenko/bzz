@@ -1,0 +1,15 @@
+.flower-center {
+  fill: var(--flower-center) !important;
+}
+
+.flower-out-1 {
+  fill: var(--flower-1) !important;
+}
+
+.flower-out-2 {
+  fill: var(--flower-2) !important;
+}
+
+.flower {
+  position: absolute;
+}
