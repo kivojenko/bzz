@@ -8,12 +8,12 @@ export const Home = () => {
     const flowers = [];
     for (let i = 0; i < 30; i++) {
         flowers.push(
-            <Flower1 id={"flower1_" + i} className="flower" width={ window.innerWidth * 0.05 } style={{
+            <Flower1 id={"flower1_" + i} key={"flower1_" + i} className="flower" width={ window.innerWidth * 0.05 } style={{
             left: (Math.random() * window.innerWidth + "px"),
             bottom: (Math.random() * window.innerHeight + "px")
         }}/>)
         flowers.push(
-            <Flower2 id={"flower2_" + i} className="flower" width={ window.innerWidth * 0.05 } style={{
+            <Flower2 id={"flower2_" + i} key={"flower2_" + i} className="flower" width={ window.innerWidth * 0.05 } style={{
                 left: (Math.random() * window.innerWidth + "px"),
                 bottom: (Math.random() * window.innerHeight + "px")
             }}/>)

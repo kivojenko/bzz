@@ -8,11 +8,11 @@ export const Bee = (props: {id: string}) => {
   const [x, y, rotateX, rotateY, angle] = useBeePosition();
 
   return <BeeSVG id={props.id} className="bee" width="100px" height="100px" style={{
-        left: x + 'px',
-        bottom: y + 'px',
+        left: x.current + 'px',
+        bottom: y.current + 'px',
         transform:
-          "rotateX(" + (rotateX ? 180 : 0) + "deg) " +
-          "rotateY(" + (rotateY ? 180 : 0) + "deg) " +
-          "rotate(" + angle + "deg)"
+          "rotateX(" + (rotateX.current ? 180 : 0) + "deg) " +
+          "rotateY(" + (rotateY.current ? 180 : 0) + "deg) " +
+          "rotate(" + angle.current + "deg)"
       }}/>;
 }

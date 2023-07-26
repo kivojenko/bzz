@@ -1,117 +1,85 @@
-import { useEffect, useState } from "react";
-import { Direction, directionsAngles } from "../../model/Direction";
+import { useEffect, useRef, useState } from "react";
 import { useAppSettings } from "../../model/AppSettings";
-
-const directionsMatrix: Direction[][] = [
-  ["north_east", "east", "south_east"],
-  ["north", "any", "south"],
-  ["north_west", "west", "south_west"]
-]
-
-function getAngleInRadians(angle: number) {
-  return (angle * Math.PI) / 180;
-}
-
-function getYDistance(angle: number, distance: number) {
-  return distance * Math.sin(getAngleInRadians(angle));
-}
-
-
-function getXDistance(angle: number, distance: number) {
-  return distance * Math.cos(getAngleInRadians(angle));
-}
-
-function generateRandomNumber(minimum: number, maximum: number) {
-  return Math.random() * (maximum - minimum) + minimum;
-}
-
-function getNewAngle(leftChange: number, bottomChange: number) : number {
-  const direction = directionsMatrix[leftChange][bottomChange];
-  const [minimum, maximum] = directionsAngles[direction];
-  const newAngle = generateRandomNumber(minimum, maximum);
-  return newAngle % 360;
-}
-
-function getRotateAngle(angle: number) {
-  if (angle > -90 && angle < 90) {
-    return angle;
-  } else if (angle > 270) {
-    return angle - 360;
-  } else {
-    return (angle - 180) * -1;
-  }
-}
-
-function getCoordinates(angle: number, distance: number) {
-  const x = getXDistance(angle, distance);
-  const y = getYDistance(angle, distance);
-  return [x, y];
-}
-
-// 0 - low-collision
-// 1 - no collision
-// 2 - high-collision
-function getCollisions(x: number, y: number) {
-  let yCollision = 1;
-  let xCollision = 1;
-  if (x < 50 && x > window.innerWidth - 150) {
-    xCollision = x > window.innerWidth * 0.5 ? 2 : 0;
-  } else if (x < 50) {
-    xCollision = 0;
-  } else if (x > window.innerWidth - 150) {
-    xCollision = 2;
-  }
-  if (y < 50 && y > window.innerHeight - 150) {
-    yCollision = y > window.innerHeight * 0.5 ? 2 : 0;
-  } else if (y < 50) {
-    yCollision = 0;
-  } else if (y > window.innerHeight - 150) {
-    yCollision = 2;
-  }
-  return [xCollision, yCollision];
-}
+import './beeUtils';
+import { getCollisions, getCoordinates, getNewAngle, getRotateAngle } from "./beeUtils";
 
 export const useBeePosition = () => {
   const distance = 40;
+  const stepsToCountFuture = 5;
   const { settings } = useAppSettings();
-  const [left, setLeft] = useState(window.innerWidth * Math.random());
-  const [bottom, setBottom] = useState(window.innerHeight * Math.random());
-  const [angle, setAngle] = useState<number>(0);
-  //let nextAngles: number[] = [0, 0, 0, 0, 0];
-  const [rotateAngle, setRotateAngle] = useState<number>(0);
-  const [rotateX, setRotateX] = useState<boolean>(false);
-  //let nextRotatesX = [false, false, false, false, false];
-  const [rotateY, setRotateY] = useState<boolean>(true);
+
+  const left = useRef(0);
+  const [nextLeftPositions, setNextLeftPositions] = useState<number[]>(Array.from({ length: stepsToCountFuture }, (_, index) => index * distance));
+  const bottom = useRef(window.innerHeight * 0.5);
+  const [nextBottomPositions, setNextBottomPositions] = useState<number[]>(new Array(stepsToCountFuture).fill(bottom.current));
+  const angle = useRef(0);
+  const [nextAngles, setNextAngles] = useState<number[]>(new Array(stepsToCountFuture).fill(0));
+  const rotateAngle = useRef(0);
+  const [nextRotateAngles, setNextRotateAngles] = useState<number[]>(new Array(stepsToCountFuture).fill(0));
+  const rotateX = useRef(false);
+  const [nextRotatesX, setNextRotatesX] = useState(new Array(stepsToCountFuture).fill(false));
+  const rotateY = useRef(false);
+  const [nextRotatesY, setNextRotatesY] = useState(new Array(stepsToCountFuture).fill(true));
   const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | undefined>(undefined);
 
-  function planMovement() {
-    let [leftOffset, bottomOffset] = getCoordinates(angle, distance);
-    let [leftChange, bottomChange] = getCollisions(left + leftOffset, bottom + bottomOffset);
-    if (settings.animationsEnabled) {
-      if (leftChange !== 1 || bottomChange !== 1 || Math.random() > 0.95) {
-        setAngle(getNewAngle(leftChange, bottomChange));
-        [leftOffset, bottomOffset] = getCoordinates(angle, distance);
-      }
-      setRotateY(angle < 90 || angle > 270);
-      setRotateX(false);
-      setRotateAngle(getRotateAngle(angle))
-      setLeft(Math.round(left + leftOffset));
-      setBottom(Math.round(bottom + bottomOffset));
-    } else if (bottomChange > 0) {
-      setRotateX(false);
-      setRotateAngle(0)
-      setBottom(Math.round(bottom - distance))
-    }
+  function move() {
+    left.current = nextLeftPositions[0];
+    bottom.current = nextBottomPositions[0];
+    angle.current = nextAngles[0];
+    rotateAngle.current = nextRotateAngles[0];
+    rotateX.current = nextRotatesX[0];
+    rotateY.current = nextRotatesY[0];
   }
 
-  useEffect( () => {
+  function setCoordinates(x: number, y: number) {
+    setNextLeftPositions([...nextLeftPositions, Math.round(x)].slice(1));
+    setNextBottomPositions([...nextBottomPositions, Math.round(y)].slice(1));
+  }
+
+  function setRotate(rotateAngle: number, rotateX: boolean = false, rotateY: boolean = false) {
+    setNextRotateAngles([...nextRotateAngles, rotateAngle].slice(1));
+    setNextRotatesX([...nextRotatesX, rotateX].slice(1));
+    setNextRotatesY([...nextRotatesY, rotateY].slice(1));
+  }
+
+  function planMovementForPosition(x: number, y: number, angle: number) {
+    let [leftOffset, bottomOffset] = getCoordinates(angle, distance);
+    let [leftChange, bottomChange] = getCollisions(x + leftOffset, y + bottomOffset);
+    let [newX, newY, newAngle] = [x + leftOffset, y + bottomOffset, angle];
+    console.log(settings.animationsEnabled)
+    console.log(leftChange)
+    if (settings.animationsEnabled) {
+      if (leftChange !== 1 || bottomChange !== 1 || Math.random() > 1 - window.innerWidth / 10000) {
+        newAngle = getNewAngle(leftChange, bottomChange);
+        [leftOffset, bottomOffset] = getCoordinates(angle, distance);
+        [newX, newY] = [x + leftOffset, y + bottomOffset];
+      }
+    } else if (bottomChange > 0) {
+      newAngle = -90;
+      [newX, newY] = [x, y - distance];
+    }
+    return [newX, newY, newAngle]
+  }
+
+  function planMovement() {
+    const [newX, newY, newAngle] = planMovementForPosition(nextLeftPositions[stepsToCountFuture - 1], nextBottomPositions[stepsToCountFuture - 1], nextAngles[stepsToCountFuture - 1]);
+    setCoordinates(newX, newY);
+    setNextAngles([...nextAngles, newAngle].slice(1));
+    setRotate(getRotateAngle(newAngle), false, newAngle < 90 || newAngle > 270)
+  }
+
+  useEffect(() => {
     clearTimeout(timeoutId);
     const timeout = setTimeout(() => {
       planMovement();
+      move();
     }, 500);
-    setTimeoutId(timeout);
+    setTimeout(() => {
+      setTimeoutId(timeout)
+    }, 500)
+    return () => clearTimeout(timeout);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [left, bottom, settings.animationsEnabled])
+  }, [timeoutId])
 
   return [left, bottom, rotateX, rotateY, rotateAngle];
 }
