@@ -14,7 +14,6 @@ function getYDistance(angle: number, distance: number) {
   return distance * Math.sin(getAngleInRadians(angle));
 }
 
-
 function getXDistance(angle: number, distance: number) {
   return distance * Math.cos(getAngleInRadians(angle));
 }
