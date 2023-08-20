@@ -5,7 +5,7 @@ import { ReactComponent as Flower1 } from "../assets/images/flowers/flower_1.svg
 import { ReactComponent as Flower2 } from "../assets/images/flowers/flower_2.svg";
 
 export const BackgroundWorld = () => {
-  const flowers = [];
+  const flowers: any = [];
   for (let i = 0; i < 30; i++) {
     flowers.push(
       <Flower1 id={"flower1_" + i} key={"flower1_" + i} className="flower" width={window.innerWidth * 0.05} style={{
@@ -19,12 +19,10 @@ export const BackgroundWorld = () => {
       }}/>)
   }
 
-  return (
-    <div id="background-world">
+  return <div id="background-world">
       <Bee id="bee-1"/>
-      {/*<Bee id="bee-2"/>*/}
+      <Bee id="bee-2"/>
       <Grass/>
       {flowers}
-    </div>
-  );
+    </div>;
 };

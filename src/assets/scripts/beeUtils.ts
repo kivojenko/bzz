@@ -30,7 +30,7 @@ export function getNewAngle(leftChange: number, bottomChange: number): number {
 }
 
 export function getRotateAngle(angle: number) {
-  if (angle == -90 || angle == 270) {
+  if (angle === -90 || angle === 270) {
     return 0;
   } else if (angle > -90 && angle < 90) {
     return angle;
@@ -53,18 +53,18 @@ export function getCoordinates(angle: number, distance: number) {
 export function getCollisions(x: number, y: number) {
   let yCollision = 1;
   let xCollision = 1;
-  if (x < 50 && x > window.innerWidth - 150) {
+  if (x < 0 && x > window.innerWidth - 100) {
     xCollision = x > window.innerWidth * 0.5 ? 2 : 0;
-  } else if (x < 50) {
+  } else if (x < 0) {
     xCollision = 0;
-  } else if (x > window.innerWidth - 150) {
+  } else if (x > window.innerWidth - 100) {
     xCollision = 2;
   }
-  if (y < 50 && y > window.innerHeight - 150) {
+  if (y < 0 && y > window.innerHeight - 100) {
     yCollision = y > window.innerHeight * 0.5 ? 2 : 0;
-  } else if (y < 50) {
+  } else if (y < 0) {
     yCollision = 0;
-  } else if (y > window.innerHeight - 150) {
+  } else if (y > window.innerHeight - 100) {
     yCollision = 2;
   }
   return [xCollision, yCollision];
