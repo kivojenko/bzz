@@ -7,8 +7,12 @@ export const Bee = (props: { id: string }) => {
   const distance = 40;
   const stepsToCountFuture = 5;
 
-  const [nextLeftPositions, setNextLeftPositions] = useState(Array.from({length: stepsToCountFuture}, (_, index) => index * distance));
-  const [nextBottomPositions, setNextBottomPositions] = useState(new Array(stepsToCountFuture).fill(200));
+  const firstLeftPosition = Math.round(Math.random() * window.innerWidth * 0.95);
+  const firstBottomPosition = Math.round(Math.random() * window.innerHeight * 0.95);
+
+  const [nextLeftPositions, setNextLeftPositions] = useState(Array
+    .from({length: stepsToCountFuture}, (_, index) => index * distance + firstLeftPosition));
+  const [nextBottomPositions, setNextBottomPositions] = useState(new Array(stepsToCountFuture).fill(firstBottomPosition));
   const [nextAngles, setNextAngles] = useState(new Array(stepsToCountFuture).fill(200));
   const [nextRotateAngles, setNextRotateAngles] = useState(new Array(stepsToCountFuture).fill(0));
   const [nextRotatesX, setNextRotatesX] = useState(new Array(stepsToCountFuture).fill(false));
@@ -42,9 +46,6 @@ export const Bee = (props: { id: string }) => {
     const [newX, newY, newAngle] = planMovementForPosition(nextLeftPositions[stepsToCountFuture - 1], nextBottomPositions[stepsToCountFuture - 1], nextAngles[stepsToCountFuture - 1]);
     setCoordinates(newX, newY, newAngle);
     setRotate(getRotateAngle(newAngle), false, newAngle < 90 || newAngle > 270)
-    // if (nextAngles.every((pos) => pos === nextAngles[0]) && nextRotatesX.every((rot) => rot === false) && Math.random() > 0.85) {
-    //   setNextRotatesX([true, true, false, false, false])
-    // }
   }
 
   useEffect(() => {
