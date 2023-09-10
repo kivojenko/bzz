@@ -1,0 +1,69 @@
+#background-world {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+.grass {
+  position: absolute;
+}
+
+#bottom-grass-1 .long-grass-svg {
+  fill: var(--long-grass-1) !important;
+}
+
+#bottom-grass-2 .long-grass-svg {
+  fill: var(--long-grass-2) !important;
+}
+
+#bottom-grass-3 .long-grass-svg, .side-grass-1 .side-grass-svg {
+  fill: var(--long-grass-3) !important;
+}
+
+.side-grass-2 .side-grass-svg {
+  fill: var(--side-grass) !important;
+}
+
+#bottom-grass-1 {
+  bottom: 29vh;
+  height: 20vh;
+  z-index: 1;
+}
+#bottom-grass-2 {
+  bottom: 18vh;
+  height: 30vh;
+  z-index: 2;
+}
+#bottom-grass-3 {
+  bottom: 0;
+  height: 50vh;
+  z-index: 4;
+}
+
+#left-grass-1 {
+  left: 5vh;
+  bottom: 0;
+  height: 64vh;
+  z-index: 5;
+}
+
+#right-grass-1 {
+  right: 5vh;
+  bottom: 0;
+  height: 64vh;
+  z-index: 5;
+}
+
+#left-grass-2 {
+  left: 0;
+  bottom: 0;
+  height: 84vh;
+  z-index: 6;
+}
+
+#right-grass-2 {
+  right: 0;
+  bottom: 0;
+  height: 84vh;
+  z-index: 6;
+}
