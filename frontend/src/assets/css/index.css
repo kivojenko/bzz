@@ -2,7 +2,8 @@
     background: var(--background);
     width: 100vw;
     height: 100vh;
-    z-index: 0;
+    position: fixed;
+    bottom: 0;
 }
 
 .container-fluid {

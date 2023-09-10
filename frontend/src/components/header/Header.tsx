@@ -7,7 +7,7 @@ import { AnimationsSwitch } from "./AnimationsSwitch";
 export const Header = () => {
 
     return (
-        <header>
+        <header style={{position: "relative"}}>
             <nav className="navbar navbar-expand-lg px-2 py-2">
                 <span className="navbar-brand m-0 h1">
                     <Logo/>
