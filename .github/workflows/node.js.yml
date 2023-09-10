@@ -34,6 +34,6 @@ jobs:
     - run: cd frontend/
     - run: pwd
     - run: rm -rf node_modules
-    - run: npm install
-    - run: npm ci
-    - run: npm run build --if-present
+    - run: npm install frontend/
+    - run: npm ci frontend/
+    - run: npm run build --if-present frontend/
