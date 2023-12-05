@@ -1,5 +1,5 @@
 import { ModeSwitchButtonWithIcons, ModeSwitchButtonWithIconsProps } from "./ModeSwitchButtonWithIcons";
-import { Cloud } from "./Cloud";
+import { Cloud } from "../background/Cloud";
 
 export interface ModeSwitchButtonWithIconsOnCloudProps extends ModeSwitchButtonWithIconsProps {
   cloudFileName: string

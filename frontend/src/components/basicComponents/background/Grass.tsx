@@ -1,7 +1,7 @@
 import React from "react";
-import { ReactComponent as LeftGrassSVG } from "../../assets/images/grass/grass_left.svg";
-import { ReactComponent as RightGrassSVG } from "../../assets/images/grass/grass_right.svg";
-import { ReactComponent as GrassSVG } from "../../assets/images/grass/grass.svg";
+import { ReactComponent as LeftGrassSVG } from "../../../assets/images/grass/grass_left.svg";
+import { ReactComponent as RightGrassSVG } from "../../../assets/images/grass/grass_right.svg";
+import { ReactComponent as GrassSVG } from "../../../assets/images/grass/grass.svg";
 
 export const Grass = () => {
   return (

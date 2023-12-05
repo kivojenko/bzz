@@ -1,4 +1,4 @@
-import { Cloud } from "../basicComponents/Cloud";
+import { Cloud } from "../basicComponents/background/Cloud";
 import React from "react";
 
 export const Logo = () => {

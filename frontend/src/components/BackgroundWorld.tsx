@@ -1,5 +1,5 @@
 import React from "react";
-import { Grass } from "./basicComponents/Grass";
+import { Grass } from "./basicComponents/background/Grass";
 import { ReactComponent as Flower1 } from "../assets/images/flowers/flower_1.svg";
 import { ReactComponent as Flower2 } from "../assets/images/flowers/flower_2.svg";
 

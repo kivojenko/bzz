@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
-import {ReactComponent as BeeSVG} from "../../assets/images/bee.svg";
-import {getCollisions, getCoordinates, getNewAngle, getRotateAngle} from "../../assets/scripts/beeUtils";
+import {ReactComponent as BeeSVG} from "../../../assets/images/bee.svg";
+import {getCollisions, getCoordinates, getNewAngle, getRotateAngle} from "../../../assets/scripts/beeUtils";
 
 
 export const Bee = (props: { id: string }) => {

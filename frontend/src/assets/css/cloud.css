@@ -1,5 +1,4 @@
 .cloud {
-  margin: 0 0.2rem;
   display: inline-block;
   background-color: var(--cloud) !important;
 
@@ -18,11 +17,6 @@
   text-decoration: none;
   padding: 0.9rem 1rem 0;
   font-family: "Pangolin", serif;
-}
-
-.cloud .btn-outline-secondary {
-  width: 4rem;
-  height: 4rem;
 }
 
 .cloud .btn-outline-secondary, .cloud a {

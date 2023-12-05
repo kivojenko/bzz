@@ -2,7 +2,7 @@ import React from 'react'
 import { Outlet } from "react-router-dom";
 import { Header } from "./header/Header";
 import { useAppSettings } from "../model/AppSettings";
-import { Bee } from "./basicComponents/Bee";
+import { Bee } from "./basicComponents/background/Bee";
 
 export const Layout = () => {
   const {settings} = useAppSettings();

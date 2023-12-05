@@ -1,6 +1,6 @@
-import { IconsMap } from "../basicComponents/ModeSwitchButtonWithIcons";
+import { IconsMap } from "../basicComponents/button/ModeSwitchButtonWithIcons";
 import { useAppSettings } from "../../model/AppSettings";
-import { ModeSwitchButtonWithIconsOnCloud } from "../basicComponents/ModeSwitchButtonWithIconsOnCloud";
+import { ModeSwitchButtonWithIconsOnCloud } from "../basicComponents/button/ModeSwitchButtonWithIconsOnCloud";
 
 export const AnimationsSwitch = () => {
   const batteryFull = "bi bi-battery-full";
